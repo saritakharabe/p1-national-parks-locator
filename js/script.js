@@ -25,12 +25,53 @@ const map = new mapboxgl.Map({
 //     zoom: 9, // starting zoom
 // });
 
+map.on('load', () => {
+    // Load an image from an external URL.
+    map.loadImage(
+        'https://docs.mapbox.com/mapbox-gl-js/assets/cat.png',
+        (error, image) => {
+            if (error) throw error;
+
+            // Add the image to the map style.
+            map.addImage('cat', image);
+
+            // Add a data source containing one point feature.
+            map.addSource('point', {
+                'type': 'geojson',
+                'data': {
+                    'type': 'FeatureCollection',
+                    'features': [
+                        {
+                            'type': 'Feature',
+                            'geometry': {
+                                'type': 'Point',
+                                'coordinates': [-98.7, 39.7]
+                            }
+                        }
+                    ]
+                }
+            });
+
+            // Add a layer to use the image to represent the data.
+            map.addLayer({
+                'id': 'points',
+                'type': 'symbol',
+                'source': 'point', // reference the data source
+                'layout': {
+                    'icon-image': 'cat', // reference the image
+                    'icon-size': 0.25
+                }
+            });
+        }
+    );
+});
+
 
 var clickDropdown = document.addEventListener('DOMContentLoaded', function () {
     var dropdown = document.querySelector('.dropdown');
-    dropdown.addEventListener('click', function(event) {
-       event.stopPropagation();                          
-       dropdown.classList.toggle('is-active');
+    dropdown.addEventListener('click', function (event) {
+        event.stopPropagation();
+        dropdown.classList.toggle('is-active');
     });
- });
+});
 
