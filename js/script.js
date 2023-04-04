@@ -15,12 +15,14 @@ fetch(apiCall)
     })
 
 // -----------------------------------------------------------------------------------------------
-// draft code to take results of natl parks API call and append it to the search result tiles
+// Code to take results of natl parks API call and append it to the search result tiles
 
-for (var i = 0; i < 20; i++) {
+for (var i = 0; i < 10; i++) {
     var searchResults = document.querySelector('#search-results');
+    searchResults.style.cssText = 'display: flex; flex-wrap: wrap; justify-content: center; width: 50%'
 
     var parkCard = document.createElement('div');
+    parkCard.style.cssText = 'border: 2px solid #000000; margin: 10px; padding: 10px; width: 40%'
     
     var cardTitle = document.createElement('h3');
     cardTitle.innerHTML = 'CARD TITLE';
@@ -32,12 +34,20 @@ for (var i = 0; i < 20; i++) {
     cardActivities.innerHTML = 'Available Activities';
     
     var cardList = document.createElement('ul');
-    var cardList = document.createElement('ul');
-    var cardList = document.createElement('ul');
-    
+    var actList1 = document.createElement('li');
+    actList1.innerHTML = 'LIST ITEM 1'
+    var actList2 = document.createElement('li');
+    actList2.innerHTML = 'LIST ITEM 2'
+    var actList3 = document.createElement('li');
+    actList3.innerHTML = 'LIST ITEM 3'
+   
     parkCard.appendChild(cardTitle);
     parkCard.appendChild(cardState);
     parkCard.appendChild(cardActivities);
+    parkCard.appendChild(cardList);
+    parkCard.appendChild(actList1);
+    parkCard.appendChild(actList2);
+    parkCard.appendChild(actList3);
     
     searchResults.appendChild(parkCard);
 }
