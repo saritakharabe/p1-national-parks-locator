@@ -1,4 +1,21 @@
 
+// -----------------------------------------------------------------------------------------------
+// National parks API call: need to replace STATE with the results of the state pulldown menu; returns lat and lon by park
+var apiKey = "6Nd3QpLEE05BdiKDL5AMEu9GVW08cRlapS83eKaQ"
+var apiCall = 'https://developer.nps.gov/api/v1/parks?stateCode=' + STATE + '&api_key=' + apiKey
+
+fetch(apiCall)
+
+.then(function (response) {
+    console.log(response);
+    return response.json();
+
+}) 
+.then(function(data) {
+    console.log(data);
+})
+
+
 //variable for map box API
 var mapKey = "pk.eyJ1IjoiYXNiMjAyIiwiYSI6ImNsZzJkcmxudTA0aDkzdHFzMHh1Mzk0a3cifQ.HQAX2YLQBEZjcagat-k8vw"
 
@@ -18,4 +35,5 @@ var clickDropdown = document.addEventListener('DOMContentLoaded', function () {
        dropdown.classList.toggle('is-active');
     });
  });
+
 
