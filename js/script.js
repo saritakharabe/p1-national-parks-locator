@@ -14,6 +14,24 @@ fetch(apiCall)
     console.log(data);
 })
 
+// -----------------------------------------------------------------------------------------------
+// draft code to take results of natl parks API call and append it to the search result tiles
+
+// for (var i = 0; i < 20; i++) {
+//     var searchResults = document.querySelector('#search-results')
+    
+    
+//     var cardTitle = document.createTextNode('park name 1');
+//     var cardState = document.createTextNode('park state');
+//     var cardActivities = document.createTextNode('activities');
+    
+//     parkCard.appendChild(cardTitle);
+//     parkCard.appendChild(cardState);
+//     parkCard.appendChild(cardActivities);
+    
+//     searchResults.appendChild(parkCard);
+//     }
+
 //variable for map box API
 var mapKey = "pk.eyJ1IjoiYXNiMjAyIiwiYSI6ImNsZzJkcmxudTA0aDkzdHFzMHh1Mzk0a3cifQ.HQAX2YLQBEZjcagat-k8vw"
 
@@ -33,3 +51,5 @@ var clickDropdown = document.addEventListener('DOMContentLoaded', function () {
        dropdown.classList.toggle('is-active');
     });
  });
+
+
