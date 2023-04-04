@@ -1,3 +1,4 @@
+
 //variable for map box API
 var mapKey = "pk.eyJ1IjoiYXNiMjAyIiwiYSI6ImNsZzJkcmxudTA0aDkzdHFzMHh1Mzk0a3cifQ.HQAX2YLQBEZjcagat-k8vw"
 
@@ -8,3 +9,13 @@ const map = new mapboxgl.Map({
     center: [-74.5, 40], // starting position [lng, lat]
     zoom: 9, // starting zoom
 });
+
+
+var clickDropdown = document.addEventListener('DOMContentLoaded', function () {
+    var dropdown = document.querySelector('.dropdown');
+    dropdown.addEventListener('click', function(event) {
+       event.stopPropagation();                          
+       dropdown.classList.toggle('is-active');
+    });
+ });
+
