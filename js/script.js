@@ -1,0 +1,15 @@
+// -----------------------------------------------------------------------------------------------
+// National parks API call: need to replace STATE with the results of the state pulldown menu; returns lat and lon by park
+var apiKey = "6Nd3QpLEE05BdiKDL5AMEu9GVW08cRlapS83eKaQ"
+var apiCall = 'https://developer.nps.gov/api/v1/parks?stateCode=' + STATE + '&api_key=' + apiKey
+
+fetch(apiCall)
+
+.then(function (response) {
+    console.log(response);
+    return response.json();
+
+}) 
+.then(function(data) {
+    console.log(data);
+})
