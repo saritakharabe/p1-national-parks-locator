@@ -1,4 +1,16 @@
 
+//variable for map box API
+var mapKey = "pk.eyJ1IjoiYXNiMjAyIiwiYSI6ImNsZzJkcmxudTA0aDkzdHFzMHh1Mzk0a3cifQ.HQAX2YLQBEZjcagat-k8vw"
+
+mapboxgl.accessToken = 'pk.eyJ1IjoiYXNiMjAyIiwiYSI6ImNsZzJkcmxudTA0aDkzdHFzMHh1Mzk0a3cifQ.HQAX2YLQBEZjcagat-k8vw';
+const map = new mapboxgl.Map({
+    container: 'map', // container ID
+    style: 'mapbox://styles/mapbox/streets-v12', // style URL
+    center: [-74.5, 40], // starting position [lng, lat]
+    zoom: 9, // starting zoom
+});
+
+
 var clickDropdown = document.addEventListener('DOMContentLoaded', function () {
     var dropdown = document.querySelector('.dropdown');
     dropdown.addEventListener('click', function(event) {
@@ -6,3 +18,4 @@ var clickDropdown = document.addEventListener('DOMContentLoaded', function () {
        dropdown.classList.toggle('is-active');
     });
  });
+
