@@ -31,67 +31,66 @@
             <p class="title is-size-4 has-text-weight-medium">Find a list of National Parks to visit by State</p>
         </div>
     </section>
-    <section>
-        <section class="d-flex">
-            <section class="section state-section row ">
-                <div class="container column is-size-4">
-                    <span class="title is-one-third box-section">Select a state</span>
-                    <br>
-                    <div class="dropdown">
-                        <div class="dropdown-trigger">
-                            <button class="button is-size-5" aria-controls="dropdown-menu" aria-haspopup="true">
-                                <span>State Code</span>
-                                <span class="icon is-medium">
-                                    <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                </span>
-                            </button>
-                        </div>
-                        <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                            <div class="dropdown-content">
-                               <a href="#" class="dropdown-item">CA</a>
-                               <a href="#" class="dropdown-item">FL</a>
-                               <a href="#" class="dropdown-item">NC</a>
-                               <a href="#" class="dropdown-item">NJ</a>
-                               <a href="#" class="dropdown-item">NY</a>
-                               <a href="#" class="dropdown-item">PA</a>
-                            </div>
-                         </div> 
+    <section class="section">
+        <section class="section state-section row">
+            <div class="container column is-size-4">
+                <span class="title is-one-third box-section">Select a state</span>
+                <br>
+                <div class="dropdown">
+                    <div class="dropdown-trigger">
+                        <button class="button is-size-5" aria-controls="dropdown-menu" aria-haspopup="true">
+                            <span>State Code</span>
+                            <span class="icon is-medium">
+                                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                        <!-- <div class="dropdown-content">
+                            <a href="#" class="dropdown-item">CA</a>
+                            <a href="#" class="dropdown-item">FL</a>
+                            <a href="#" class="dropdown-item">NC</a>
+                            <a href="#" class="dropdown-item">NJ</a>
+                            <a href="#" class="dropdown-item">NY</a>
+                            <a href="#" class="dropdown-item">PA</a>
+                        </div> -->
                     </div>
                 </div>
-                <div class="container column is-size-4">
-                    <span class="title is-one-third box-section">Select a Activities</span>
+            </div>
+            <div class="container column is-size-4">
+                <span class="title is-one-third box-section">Select a Activities</span>
+                <br>
+                <fieldset>
+                    <input type="checkbox" name="activities" value="hiking">Hiking<br>
+                    <input type="checkbox" name="activities" value="trail">Trail<br>
+                    <input type="checkbox" name="activities" value="fishing">Fishing<br>
+                    <input type="checkbox" name="activities" value="camping">Camping<br>
+                    <input type="checkbox" name="activities" value="camping">Bike-ride<br>
                     <br>
-
-                    <fieldset>
-                        <input type="checkbox" name="activities" value="hiking">Hiking<br>
-                        <input type="checkbox" name="activities" value="trail">Trail<br>
-                        <input type="checkbox" name="activities" value="fishing">Fishing<br>
-                        <input type="checkbox" name="activities" value="camping">Camping<br>
-                        <input type="checkbox" name="activities" value="camping">Bike-ride<br>
-                        <br>
-                    </fieldset>
-                </div>
-
-                <div class="container column is-size-4">
-                    <span class="title is-one-third has-background-primary box-section"> Search by Name </span>
-                </div>
+                </fieldset>
+            </div>
+            <div class="container column is-size-4">
+                <span class="title is-one-third has-background-primary box-section"> Search by Name </span>
+                <label></label><br>
+                <input type="text">
+            </div>
+        </section>
+        <section class="divided-section">
+            <section class="section-1 has-text-centered">
+                <span class="is-size-3 has-background-primary mx-6">Map section </span>
+                <div id='map' style='width: 600px; height: 300px;'></div>
             </section>
-            <section class="section map-section has-text-left-touch">
-                <span class="is-size-3 has-background-primary">Map section </span>
-                <div id='map' style='width: 400px; height: 300px;'></div>
+            <section id="search-results" class="section-2">
             </section>
         </section>
     </section>
 
-    <section id="search-results">
 
-    </section>
-    
     <!-- scripts for bootstrap, jquery, jquery UI, dayjs, and javascript -->
     <!-- Need to add script for Bulma -->
 
     <script src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
-    <!-- <script src='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js'></script> -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js'></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
