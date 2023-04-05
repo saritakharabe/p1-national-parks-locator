@@ -186,14 +186,13 @@ fetch(apiCall)
 // }
 // //--------->Local Storage to above<--------------------//
 
-
 var displayTiles = function (data) {
     for (var i = 0; i < 100; i++) {
   
-        searchResults.style.cssText = 'display: flex; flex-wrap: wrap; justify-content: center; width: 100%'
+        searchResults.style.cssText = 'display: flex; flex-wrap: wrap; justify-content: center'
 
         var parkCard = document.createElement('card');
-        parkCard.style.cssText = 'border: 2px solid #000000; margin: 10px; padding: 10px; width: 45%';
+        parkCard.style.cssText = 'border: 2px solid #000000; margin: 10px; padding: 10px; width: 45%; background-color: white';
         parkCard.classList.add('park-card')
         parkCard.dataset.lat = data.data[i].latitude
         parkCard.dataset.lon = data.data[i].longitude
@@ -226,7 +225,6 @@ var displayTiles = function (data) {
     }
 }
 
-// parkCard.addEventListener('click', expandDetails)
 
 // -----------------------------------------------------------------------------------------------
 // Code to expand the tile to show more details on clicked park
@@ -293,3 +291,5 @@ var expandDetails = function (event) {
 //         dropdownList.appendChild(liEl);
 //     }
 // }  
+
+
