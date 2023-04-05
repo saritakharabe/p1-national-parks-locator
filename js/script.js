@@ -182,6 +182,17 @@ container.addEventListener('click', function (event) {
     var element = event.target;
     localStorage.setItem('park', element)
 })
+
+renderLastSlected()
+
+function renderLastSlected() {
+    var park = localStorage.getItem('park')
+
+    if(!park){
+        return;
+    }
+     container1.textContent = park
+}
 //--------->Local Storage to above<--------------------//
 
 
