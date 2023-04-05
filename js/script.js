@@ -50,26 +50,40 @@ var displayTiles = function (data) {
         parkCard.appendChild(actList2);
 
         searchResults.appendChild(parkCard);
+        // expandDetails()
     }
 }
 
 // -----------------------------------------------------------------------------------------------
 // Code to expand the tile to show more details on clicked park
+
+var expandDetails = function() {
 searchResults.innerHTML = " "
 
 var detailedCard = document.createElement('div');
 detailedCard.style.cssText = 'border: 2px solid #000000; margin: 10px; padding: 10px; width: 100%'
 
 var detailedTitle = document.createElement('h2');
-detailedTitle.innerHTML = ;
+detailedTitle.innerHTML = "TITLE";
 
-var detailedDescription = document.createElement('h2');
-detailedDescription.innerHTML = ;
+var detailedDescription = document.createElement('p');
+detailedDescription.innerHTML = "DESCRIPTION";
 
-var detailedActivities = document.createElement('h2');
-detailedActivities.innerHTML = ;
+var detailedList = document.createElement('ul');
+var detailedActivities = document.createElement('li');
+detailedActivities.innerHTML = "LIST";
 
+var detailedURL = document.createElement('h3');
+detailedURL.innerHTML = "For more information, visit the park's page at: " + "URL";
 
+detailedCard.appendChild(detailedTitle);
+detailedCard.appendChild(detailedDescription);
+detailedCard.appendChild(detailedList);
+detailedCard.appendChild(detailedActivities);
+detailedCard.appendChild(detailedURL);
+
+searchResults.appendChild(detailedCard);
+}
 
 
 //variable for map box API
