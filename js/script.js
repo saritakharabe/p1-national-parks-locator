@@ -106,19 +106,30 @@ for (var i = 0; i < 10; i++) {
 
     searchResults.appendChild(parkCard);
 }
-//var container = document.querySelector("#search-results")
+
+//--------->for loop for multiple parks to fallow<--------------------//
+
+
+//--------->for loop for multiple parks to above<--------------------//
+
+
+//---------> code for 'zoom' function to fallow<----------------------//
+
+var container = document.querySelector("#search-results")
+var container1 = document.querySelector('#saved serchers')
 container.addEventListener('click', function (event) {
     //code to replace standard map
     var element = event.target;
     var lng = element.getAttribut('longatude')
     var lat = element.getAttribute('latatude')
 
+    if(element.matches('.parkcard')){
     mapboxgl.accessToken = mapKey;
     const map = new mapboxgl.Map({
         container: 'map', // container ID
         style: 'mapbox://styles/mapbox/streets-v12', // style URL
         center: [lng, lat], // starting position [lng, lat]
-        zoom: 2, // starting zoom
+        zoom: 4, // starting zoom
     });
     map.on('load', () => {
         // Load an image from an external URL.
@@ -140,7 +151,7 @@ container.addEventListener('click', function (event) {
                                 'type': 'Feature',
                                 'geometry': {
                                     'type': 'Point',
-                                    'coordinates': [-98.7, 39.7]
+                                    'coordinates': [lng, lat]
                                 }
                             }
                         ]
@@ -160,9 +171,18 @@ container.addEventListener('click', function (event) {
             }
         );
     });
-    
+    }  
 
 })
+//---------> code for 'zoom' function above<----------------------//
+
+//--------->Local Storage to fallow<--------------------//
+container.addEventListener('click', function (event) {
+    event.preventDefault()
+    var element = event.target;
+    localStorage.setItem('park', element)
+})
+//--------->Local Storage to above<--------------------//
 
 
 
