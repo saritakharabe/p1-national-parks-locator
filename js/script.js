@@ -1,19 +1,20 @@
 
 // -----------------------------------------------------------------------------------------------
 // National parks API call: need to replace STATE with the results of the state pulldown menu; returns lat and lon by park
-var apiKey = "6Nd3QpLEE05BdiKDL5AMEu9GVW08cRlapS83eKaQ"
-var apiCall = 'https://developer.nps.gov/api/v1/parks?stateCode=' + STATE + '&api_key=' + apiKey
+// var STATE = document.selectArtibute('.dropdown-item')
+// var apiKey = "6Nd3QpLEE05BdiKDL5AMEu9GVW08cRlapS83eKaQ"
+// var apiCall = 'https://developer.nps.gov/api/v1/parks?stateCode=' + STATE + '&api_key=' + apiKey
 
-fetch(apiCall)
+// fetch(apiCall)
 
-.then(function (response) {
-    console.log(response);
-    return response.json();
+// .then(function (response) {
+//     console.log(response);
+//     return response.json();
 
-}) 
-.then(function(data) {
-    console.log(data);
-})
+// }) 
+// .then(function(data) {
+//     console.log(data);
+// })
 
 
 //variable for map box API
@@ -45,7 +46,7 @@ const map = new mapboxgl.Map({
 map.on('load', () => {
     // Load an image from an external URL.
     map.loadImage(
-        'https://docs.mapbox.com/mapbox-gl-js/assets/cat.png',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Logo_of_the_United_States_National_Park_Service.svg/1200px-Logo_of_the_United_States_National_Park_Service.svg.png',
         (error, image) => {
             if (error) throw error;
 
@@ -76,13 +77,28 @@ map.on('load', () => {
                 'source': 'point', // reference the data source
                 'layout': {
                     'icon-image': 'cat', // reference the image
-                    'icon-size': 0.25
+                    'icon-size': 0.01
                 }
             });
         }
     );
 });
 
+// National parks API call: need to replace STATE with the results of the state pulldown menu; returns lat and lon by park
+// var STATE = document.selectArtibute('.dropdown-item')
+// var apiKey = "6Nd3QpLEE05BdiKDL5AMEu9GVW08cRlapS83eKaQ"
+// var apiCall = 'https://developer.nps.gov/api/v1/parks?stateCode=' + STATE + '&api_key=' + apiKey
+
+// fetch(apiCall)
+
+// .then(function (response) {
+//     console.log(response);
+//     return response.json();
+
+// }) 
+// .then(function(data) {
+//     console.log(data);
+// })
 
 var clickDropdown = document.addEventListener('DOMContentLoaded', function () {
     var dropdown = document.querySelector('.dropdown');
