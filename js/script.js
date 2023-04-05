@@ -116,8 +116,66 @@ for (var i = 0; i < 10; i++) {
 //---------> code for 'zoom' function to fallow<----------------------//
 
 var container = document.querySelector("#search-results")
-var container1 = document.querySelector('#saved serchers')
+var container1 = document.querySelector('#saved-serchers')
 container.addEventListener('click', function (event) {
+    //code to replace standard map
+    var element = event.target;
+    var lng = element.getAttribut('longatude')
+    var lat = element.getAttribute('latatude')
+
+    if(element.matches('.parkcard')){
+    mapboxgl.accessToken = mapKey;
+    const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/streets-v12', // style URL
+        center: [lng, lat], // starting position [lng, lat]
+        zoom: 4, // starting zoom
+    });
+    map.on('load', () => {
+        // Load an image from an external URL.
+        map.loadImage(
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Logo_of_the_United_States_National_Park_Service.svg/1200px-Logo_of_the_United_States_National_Park_Service.svg.png',
+            (error, image) => {
+                if (error) throw error;
+    
+                // Add the image to the map style.
+                map.addImage('logo', image);
+    
+                // Add a data source containing one point feature.
+                map.addSource('point', {
+                    'type': 'geojson',
+                    'data': {
+                        'type': 'FeatureCollection',
+                        'features': [
+                            {
+                                'type': 'Feature',
+                                'geometry': {
+                                    'type': 'Point',
+                                    'coordinates': [lng, lat]
+                                }
+                            }
+                        ]
+                    }
+                });
+    
+                // Add a layer to use the image to represent the data.
+                map.addLayer({
+                    'id': 'points',
+                    'type': 'symbol',
+                    'source': 'point', // reference the data source
+                    'layout': {
+                        'icon-image': 'logo', // reference the image
+                        'icon-size': 0.02
+                    }
+                });
+            }
+        );
+    });
+    }  
+
+})
+
+container1.addEventListener('click', function (event) {
     //code to replace standard map
     var element = event.target;
     var lng = element.getAttribut('longatude')
@@ -180,13 +238,13 @@ container.addEventListener('click', function (event) {
 container.addEventListener('click', function (event) {
     event.preventDefault()
     var element = event.target;
-    localStorage.setItem('park', element)
+    localStorage.setItem('parkcard', element)
 })
 
 renderLastSlected()
 
 function renderLastSlected() {
-    var park = localStorage.getItem('park')
+    var park = localStorage.getItem('parkcard')
 
     if(!park){
         return;
