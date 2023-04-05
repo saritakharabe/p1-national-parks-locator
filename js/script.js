@@ -192,14 +192,16 @@ var displayTiles = function (data) {
         searchResults.style.cssText = 'display: flex; flex-wrap: wrap; justify-content: center'
 
         var parkCard = document.createElement('card');
-        parkCard.style.cssText = 'border: 2px solid #000000; margin: 10px; padding: 10px; width: 45%; background-color: white';
+        parkCard.style.cssText = 'border: 2px solid #000000; margin: 10px; padding: 10px; width: 45%; background-color: #fcfcf4; border-radius: 10px';
         parkCard.classList.add('park-card')
-        parkCard.dataset.lat = data.data[i].latitude
-        parkCard.dataset.lon = data.data[i].longitude
-        parkCard.dataset.code = data.data[i].parkCode
+        
 
         var cardTitle = document.createElement('h3');
         cardTitle.innerHTML = "Park Name: " + data.data[i].name;
+        cardTitle.dataset.lat = data.data[i].latitude
+        cardTitle.dataset.lon = data.data[i].longitude
+        cardTitle.dataset.code = data.data[i].parkCode
+        cardTitle.style.cssText = 'font-weight: bold; cursor: grab; text-decoration: underline; color: #00308F'
 
         var cardState = document.createElement('h3');
         cardState.innerHTML = "State(s): " + data.data[i].states;
@@ -222,20 +224,23 @@ var displayTiles = function (data) {
         parkCard.appendChild(actList2);
 
         searchResults.appendChild(parkCard);
+
+        cardTitle.addEventListener('click', expandDetails)
     }
 }
+
 
 
 // -----------------------------------------------------------------------------------------------
 // Code to expand the tile to show more details on clicked park
 
-var expandDetails = function (event) {
-    var element = event.target
+var expandDetails = function (park) {
+    var element = park.target
     console.log(element);
     searchResults.innerHTML = " "
 
     var detailedCard = document.createElement('div');
-    detailedCard.style.cssText = 'border: 2px solid #000000; margin: 10px; padding: 10px; width: 100%'
+    detailedCard.style.cssText = 'border: 2px solid #000000; margin: 10px; padding: 10px; width: 95%; background-color: #fcfcf4; border-radius: 10px';
 
     var detailedTitle = document.createElement('h2');
     detailedTitle.innerHTML = "TITLE";
