@@ -8,78 +8,90 @@
     <meta name="Description" content="Enter your description here" />
 
     <!-- added mapbox API links -->
-    <script src='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css' rel='stylesheet' />
-
 
     <!-- links to boostrap, jquery, and css -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous" />
+
     <!--link to bulma-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
 
     <title>ParkFinder: Plan Your Next Outdoor Getaway</title>
 </head>
 
 <body>
-
-
-
-
-
-
-
-
-    <div id='map' style='width: 400px; height: 300px;'></div>
-    
     <!-- scripts for bootstrap, jquery, jquery UI, dayjs, and javascript -->
     <!-- Need to add script for Bulma -->
-
     <section class="section has-background-info">
         <div class="container has-text-centered">
-            <span class="title is-size-1 is-italic has-text-weight-bold">National Park Locator</span>
+            <span class="title is-size-2 has-text-weight-bold">National Park Locator</span>
+            <p class="title is-size-4 has-text-weight-medium">Find a list of National Parks to visit by State</p>
         </div>
     </section>
-    <section class = "section max-width-100">
-        <div class = "container">
-           <span class = "title">Select a state</span>
-           <br>
-           <br>
-           <div class = "dropdown">
-              <div class = "dropdown-trigger">
-                 <button class = "button is-size-4" aria-controls = "dropdown-menu">
-                    <span>State Code</span>
-                    <span class = "icon is-medium">
-                       <i class = "fa fa-angle-down" aria-hidden="true"></i>
-                    </span>
-                 </button>
-              </div>
-              <div class = "dropdown-menu" id = "dropdown-menu" role = "menu">
-                 <div class = "dropdown-content">
-                    <a href = "#"  class = "dropdown-item">CA</a>
-                    <a href = "#" class = "dropdown-item">FL</a>
-                    <a href = "#" class = "dropdown-item">NC</a>
-                    <a href = "#" class = "dropdown-item">NJ</a>
-                    <a href = "#"  class = "dropdown-item">NY</a>
-                    <a href = "#" class = "dropdown-item">PA</a>
-                 </div>
-              </div>
-           </div>
-        </div>
-    </section>
+    <section>
+        <section class="d-flex">
+            <section class="section state-section row ">
+                <div class="container column is-size-4">
+                    <span class="title is-one-third box-section">Select a state</span>
+                    <br>
+                    <div class="dropdown">
+                        <div class="dropdown-trigger">
+                            <button class="button is-size-5" aria-controls="dropdown-menu" aria-haspopup="true">
+                                <span>State Code</span>
+                                <span class="icon is-medium">
+                                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                            <div class="dropdown-content">
+                               <a href="#" class="dropdown-item">CA</a>
+                               <a href="#" class="dropdown-item">FL</a>
+                               <a href="#" class="dropdown-item">NC</a>
+                               <a href="#" class="dropdown-item">NJ</a>
+                               <a href="#" class="dropdown-item">NY</a>
+                               <a href="#" class="dropdown-item">PA</a>
+                            </div>
+                         </div> 
+                    </div>
+                </div>
+                <div class="container column is-size-4">
+                    <span class="title is-one-third box-section">Select a Activities</span>
+                    <br>
 
-    
+                    <fieldset>
+                        <input type="checkbox" name="activities" value="hiking">Hiking<br>
+                        <input type="checkbox" name="activities" value="trail">Trail<br>
+                        <input type="checkbox" name="activities" value="fishing">Fishing<br>
+                        <input type="checkbox" name="activities" value="camping">Camping<br>
+                        <input type="checkbox" name="activities" value="camping">Bike-ride<br>
+                        <br>
+                    </fieldset>
+                </div>
+
+                <div class="container column is-size-4">
+                    <span class="title is-one-third has-background-primary box-section"> Search by Name </span>
+                </div>
+            </section>
+            <section class="section map-section has-text-left-touch">
+                <span class="is-size-3 has-background-primary">Map section </span>
+                <div id='map' style='width: 400px; height: 300px;'></div>
+            </section>
+        </section>
+    </section>
     <!-- scripts for bootstrap, jquery, jquery UI, dayjs, and javascript -->
     <!-- Need to add script for Bulma -->
-    
+
     <script src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+    <!-- <script src='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js'></script> -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
         integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="./js/script.js"></script>
+    <script type="text/javascript" src="./assets/js/script.js"></script>
 
 </body>

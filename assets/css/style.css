@@ -1,0 +1,19 @@
+body, html {
+    height: 100%;
+    margin: 0;
+  }
+
+body{
+    background-image: url("../images/nature.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+.state-section{
+  width: 50%;
+}
+
+.box-section{
+  border: 1px solid black;
+}
