@@ -306,8 +306,4 @@ container.addEventListener('click', function (event) {
 
 // --------->Local Storage to above<--------------------//
 
-    // }
-container.addEventListener("click", mapZoom);
-
-// container1.addEventListener("click", mapZoom);
 
