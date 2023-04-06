@@ -17,10 +17,6 @@ const map = new mapboxgl.Map({
   zoom: 9, // starting zoom
 });
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 4e8b2601a3339fc432df2a331c95cbc46751b874
 // Code to take results of natl parks API call and append it to the search result tiles
 var searchResults = document.querySelector("#search-results");
 
@@ -270,9 +266,5 @@ function mapZoom(event) {
   }
 }
 container.addEventListener("click", mapZoom);
-<<<<<<< HEAD
-//container1.addEventListener("click", mapZoom);
-=======
 
-// container1.addEventListener("click", mapZoom);
->>>>>>> 4e8b2601a3339fc432df2a331c95cbc46751b874
+container1.addEventListener("click", mapZoom);
