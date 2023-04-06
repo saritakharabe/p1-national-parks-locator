@@ -17,6 +17,10 @@ const map = new mapboxgl.Map({
   zoom: 9, // starting zoom
 });
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4e8b2601a3339fc432df2a331c95cbc46751b874
 // Code to take results of natl parks API call and append it to the search result tiles
 var searchResults = document.querySelector("#search-results");
 
@@ -31,15 +35,14 @@ function displayParkList(data) {
       "display: flex; flex-wrap: wrap; justify-content: center";
 
     var parkCard = document.createElement("card");
-    parkCard.style.cssText =
-      "border: 2px solid #000000; margin: 10px; padding: 10px; width: 45%; background-color: #fcfcf4; border-radius: 10px";
-    parkCard.classList.add("park-card");
+    parkCard.classList.add('park-card');
 
     var cardTitle = document.createElement("h3");
     cardTitle.innerHTML = data.data[i].name;
     cardTitle.dataset.lat = data.data[i].latitude;
     cardTitle.dataset.lon = data.data[i].longitude;
     cardTitle.dataset.code = data.data[i].parkCode;
+    cardTitle.dataset.name = data.data[i].name;
     cardTitle.style.cssText =
       "font-weight: bold; cursor: grab; text-decoration: underline; color: #00308F";
 
@@ -67,37 +70,59 @@ function displayParkList(data) {
   }
 }
 
+// -------------------------------------------------------------------------------------------
+// When a search result is clicked, expands to additional details about the park
 var expandDetails = function (park) {
-  var element = park.target;
-  console.log(element);
-  searchResults.innerHTML = " ";
+    var element = park.target;
+    console.log(element)
 
-  var detailedCard = document.createElement("div");
-  detailedCard.style.cssText =
-    "border: 2px solid #000000; margin: 10px; padding: 10px; width: 95%; background-color: #fcfcf4; border-radius: 10px";
+    var api = "https://developer.nps.gov/api/v1/parks?parkCode=" + element.dataset.code + "&api_key=" +
+    apiKey;
 
-  var detailedTitle = document.createElement("h2");
-  detailedTitle.innerHTML = "TITLE";
+    // new API fetch
+    fetch(api)
+    .then(function (parkResponse) {
+      return parkResponse.json()
+      
+      .then(function (parkResponse) {
+        searchResults.innerHTML = " ";
 
-  var detailedDescription = document.createElement("p");
-  detailedDescription.innerHTML = "DESCRIPTION";
+        // creates new card with neccesary details
+        var detailedCard = document.createElement("div");
+        detailedCard.classList.add('detailed-card')
+      
+        var detailedTitle = document.createElement("h1");
+        detailedTitle.innerHTML = parkResponse.data[0].name;
+      
+        var detailedDescription = document.createElement("p");
+        detailedDescription.innerHTML = parkResponse.data[0].description;
 
-  var detailedList = document.createElement("ul");
-  var detailedActivities = document.createElement("li");
-  detailedActivities.innerHTML = "LIST";
+        var cardList = document.createElement("ul")
+        cardList.innerHTML = "The activities available at this park include: "
+        var activity = parkResponse.data[0].activities.length;
+        
+        for (var j = 0; j < activity; j++) {
+          var actList1 = document.createElement("li");
+          actList1.innerHTML = parkResponse.data[0].activities[j].name;
+          cardList.appendChild(actList1);
+        }
 
-  var detailedURL = document.createElement("h3");
-  detailedURL.innerHTML =
-    "For more information, visit the park's page at: " + "URL";
+        var detailedURL = document.createElement("p");
+        detailedURL.innerHTML =
+          "For more information, visit the park's page at: " + parkResponse.data[0].url;
+      
+        detailedCard.appendChild(detailedTitle);
+        detailedCard.appendChild(detailedDescription);
+        detailedCard.appendChild(cardList);
+        detailedCard.appendChild(detailedURL);
+        searchResults.appendChild(detailedCard);
+     }) });
+      
+      }
+    ;
 
-  detailedCard.appendChild(detailedTitle);
-  detailedCard.appendChild(detailedDescription);
-  detailedCard.appendChild(detailedList);
-  detailedCard.appendChild(detailedActivities);
-  detailedCard.appendChild(detailedURL);
-
-  searchResults.appendChild(detailedCard);
-};
+  
+;
 
 // showing state-code dropdown list
 var dropdown = document.querySelector(".dropdown");
@@ -245,4 +270,9 @@ function mapZoom(event) {
   }
 }
 container.addEventListener("click", mapZoom);
+<<<<<<< HEAD
 //container1.addEventListener("click", mapZoom);
+=======
+
+// container1.addEventListener("click", mapZoom);
+>>>>>>> 4e8b2601a3339fc432df2a331c95cbc46751b874

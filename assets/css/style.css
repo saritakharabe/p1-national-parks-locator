@@ -2,11 +2,31 @@ body,
 html {
   height: 100%;
   margin: auto;
+<<<<<<< HEAD
 }
+=======
+}
+
+.section {
+  background-color: aquamarine;
+}
+
+.state-section {
+  width: 100%;
+  margin: 0;
+
+}
+
+.map-section {
+  width: 100%;
+}
+
+>>>>>>> 4e8b2601a3339fc432df2a331c95cbc46751b874
 .box-section {
   border: 1px solid black;
 }
 
+<<<<<<< HEAD
 .bg-img { 
   background-image: url("../images/luca-calderone-t_E188mzjvU-unsplash.jpg") ;
   background-repeat:  no-repeat;
@@ -14,15 +34,24 @@ html {
   background-size:  cover;
 
 }
+=======
+>>>>>>> 4e8b2601a3339fc432df2a331c95cbc46751b874
 .divided-section {
   width: 100%;
   display: flex;
 }
+<<<<<<< HEAD
 .dropdown-menu {
   max-height: 150px;
+=======
+
+.dropdown-menu {
+  max-height: 200px;
+>>>>>>> 4e8b2601a3339fc432df2a331c95cbc46751b874
   overflow: scroll;
   background-color: aquamarine;
 }
+<<<<<<< HEAD
 .map-section {
   width: 100%;
 }
@@ -40,3 +69,63 @@ html {
   width: 100%;
   margin: 0;
 }
+=======
+
+.section-1 {
+  width: 50%;
+}
+
+.section-2 {
+  width: 50%;
+}
+
+.park-card {
+  border: 2px solid #000000;
+  margin: 10px;
+  padding: 10px;
+  width: 45%;
+  background-color: #fcfcf4;
+  border-radius: 10px
+}
+
+.detailed-card h1 {
+  font-size: 300%;
+  font-weight: bold;
+  margin: 10px;
+}
+
+.detailed-card {
+  border: 2px solid #000000;
+  margin: 10px;
+  padding: 10px;
+  width: 95%;
+  background-color: #fcfcf4;
+  border-radius: 10px
+}
+
+.detailed-card h3 {
+  font-size: 125%;
+  font-weight: bold;
+  margin: 10px;
+}
+
+.detailed-card p {
+  margin: 10px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.detailed-card ul {
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.detailed-card li {
+  list-style-type: circle;
+  margin-left: 50px;
+}
+
+.detailed-card p {
+  margin-top: 20px;
+}
+>>>>>>> 4e8b2601a3339fc432df2a331c95cbc46751b874
