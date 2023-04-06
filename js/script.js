@@ -6,10 +6,10 @@ var apiCall =
     "&api_key=" +
     apiKey;
 
-var mapKey = "pk.eyJ1IjoiYXNiMjAyIiwiYSI6ImNsZzJkcmxudTA0aDkzdHFzMHh1Mzk0a3cifQ.HQAX2YLQBEZjcagat-k8vw";
-var savedParks = []
-// mapboxgl.accessToken =
-//   "pk.eyJ1IjoiYXNiMjAyIiwiYSI6ImNsZzJkcmxudTA0aDkzdHFzMHh1Mzk0a3cifQ.HQAX2YLQBEZjcagat-k8vw";
+var mapKey =
+    "pk.eyJ1IjoiYXNiMjAyIiwiYSI6ImNsZzJkcmxudTA0aDkzdHFzMHh1Mzk0a3cifQ.HQAX2YLQBEZjcagat-k8vw";
+mapboxgl.accessToken =
+    "pk.eyJ1IjoiYXNiMjAyIiwiYSI6ImNsZzJkcmxudTA0aDkzdHFzMHh1Mzk0a3cifQ.HQAX2YLQBEZjcagat-k8vw";
 const map = new mapboxgl.Map({
     container: "map", // container ID
     style: "mapbox://styles/mapbox/streets-v12", // style URL
@@ -207,8 +207,6 @@ function mapZoom(event) {
                         },
                     });
 
-
-                    //--------->Local Storage to above<--------------------//
                     // Add a layer to use the image to represent the data.
                     map.addLayer({
                         id: "points",
@@ -229,3 +227,38 @@ function mapZoom(event) {
 container.addEventListener("click", mapZoom);
 
 container1.addEventListener("click", mapZoom);
+
+// --------->Local Storage to fallow<--------------------//
+container.addEventListener('click', function (event) {
+    var element = event.target;
+    var currentParks = JSON.parse(localStorage.getItem('parkcard'))
+    if (!currentParks) {
+        currentParks = []
+    }
+    if (Element.matches('h3')) {
+        var parkName = element.getAttribut()
+        var lng = element.getAttribut('data-lon')
+        var lat = element.getAttribute('data-lat')
+        var parkObj = {
+            parkName: parkName,
+            longatude: lng,
+            latatude: lat,
+        }
+        currentParks.push(parkObj)
+        localStorage.setItem('parkcard', JSON.stringify(currentParks))
+    }
+
+})
+
+function renderLastSlected() {
+    var park = localStorage.getItem('parkcard')
+
+    if (!park) {
+        return;
+    }
+    container1.textContent = park
+}
+renderLastSlected()
+
+
+// --------->Local Storage to above<--------------------//
