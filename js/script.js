@@ -17,15 +17,6 @@ const map = new mapboxgl.Map({
   zoom: 9, // starting zoom
 });
 
-// fetch(apiCall)
-//   .then(function (response) {
-//     console.log(response);
-//     return response.json();
-//   })
-//   .then(function (data) {
-//     console.log(data);
-//     displayTiles(data);
-//   });
 
 // Code to take results of natl parks API call and append it to the search result tiles
 var searchResults = document.querySelector("#search-results");
@@ -149,6 +140,7 @@ function onStateSelect(event) {
   var spanEl = document.getElementById("state-code");
   spanEl.innerHTML = event.target.value;
   var api = apiCall.replace("{0}", event.target.value);
+  
 
   fetch(api)
     .then(function (parkResponse) {
@@ -167,9 +159,31 @@ function onStateSelect(event) {
     });
 }
 
+function onSelectActivity(event) {
+    var spanEl = document.getElementById("activity-list");
+    spanEl.innerHTML = event.target.value;
+    var api = apiCall.replace("{0}", event.target.value);
+    
+    fetch(api)
+      .then(function (parkResponse) {
+        if (parkResponse.ok) {
+          console.log(parkResponse);
+          parkResponse.json().then(function (data) {
+            console.log(data);
+            displayParkList(data);
+          });
+        } else {
+          alert("park API error");
+        }
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+  }
+
+
 // Code to expand the tile to show more details on clicked park
 //variable for map box API
-
 //after filtering activity showing park list
 
 var container = document.querySelector("#search-results");
@@ -215,7 +229,6 @@ function mapZoom(event) {
               ],
             },
           });
-
           // Add a layer to use the image to represent the data.
           map.addLayer({
             id: "points",
@@ -232,7 +245,5 @@ function mapZoom(event) {
     // }
   }
 }
-
 container.addEventListener("click", mapZoom);
-
-container1.addEventListener("click", mapZoom);
+//container1.addEventListener("click", mapZoom);

@@ -26,8 +26,9 @@ body, html {
   display: flex;
 }
 .dropdown-menu{
-  max-height: 200px;
+  max-height: 150px;
   overflow: scroll;
+  background-color: aquamarine;
 }
 .section-1{
   width: 50%;
