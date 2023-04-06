@@ -2,7 +2,7 @@ body,
 html {
   height: 100%;
   margin: auto;
-
+  background-color: aquamarine;
 }
 
 .section {
@@ -12,7 +12,12 @@ html {
 .state-section {
   width: 100%;
   margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
 
+.title {
+  border: none !important;
 }
 
 .map-section {
@@ -24,11 +29,11 @@ html {
 }
 
 
-.bg-img { 
-  background-image: url("../images/luca-calderone-t_E188mzjvU-unsplash.jpg") ;
-  background-repeat:  no-repeat;
+.bg-img {
+  background-image: url("../images/luca-calderone-t_E188mzjvU-unsplash.jpg");
+  background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size:  cover;
+  background-size: cover;
 
 }
 
@@ -40,7 +45,7 @@ html {
 .dropdown-menu {
   max-height: 200px;
   overflow: scroll;
-  background-color: aquamarine;
+  background-color: white;
 }
 
 .section-1 {
@@ -49,6 +54,14 @@ html {
 
 .section-2 {
   width: 50%;
+}
+
+.saved-searches {
+  border: none !important;
+  color: #363636 !important;
+  font-weight: 600 !important;
+  background: none !important;
+  font-size: 2rem !important;
 }
 
 .park-card {
@@ -101,3 +114,87 @@ html {
   margin-top: 20px;
 }
 
+
+/* FOR TABLETS/MEDIUM DEVICES */
+
+
+@media (max-width: 992px) {
+
+  .state-section {
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+  }
+  
+  .is-size-4 {
+    width: 100%;
+    text-align: center;
+  }
+
+  .is-one-third {
+    width: 100%:
+  }
+
+  .divided-section {
+    flex-direction: column;
+  }
+
+  .section-1 {
+    width: 100%;
+  }
+
+  .section-2 {
+    width: 100%;
+  }
+
+  .park-card {
+    width: 100% !important;
+  }
+
+  #map {
+    height: 500px !important;
+  }
+
+}
+
+
+/* FOR SMALL PHONES/DEVICES */
+
+@media (max-width: 576px) {
+  
+  .state-section {
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+  }
+  
+  .is-size-4 {
+    width: 100%;
+    text-align: center;
+  }
+
+  .is-one-third {
+    width: 100%:
+  }
+
+  .divided-section {
+    flex-direction: column;
+  }
+
+  .section-1 {
+    width: 100%;
+  }
+
+  .section-2 {
+    width: 100%;
+  }
+
+  .park-card {
+    width: 100% !important;
+  }
+
+  #map {
+    height: 500px !important;
+  }
+
+}
