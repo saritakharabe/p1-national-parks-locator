@@ -73,43 +73,43 @@ fetch(apiCall)
 
 var dropdown = document.querySelector(".dropdown");
 var clickDropdown = document.addEventListener("DOMContentLoaded", function () {
-  dropdown.addEventListener("click", function (event) {
-    event.stopPropagation();
-    dropdown.classList.toggle("is-active");
-  });
+    dropdown.addEventListener("click", function (event) {
+        event.stopPropagation();
+        dropdown.classList.toggle("is-active");
+    });
 });
 dropdown.classList.remove("is-active");
 document.addEventListener("click", function (event) {
-  dropdown.classList.remove("is-active");
+    dropdown.classList.remove("is-active");
 });
 
 fetch("./assets/statecodes.json")
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log(data);
-    showdropdownList(data);
-  });
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        console.log(data);
+        showdropdownList(data);
+    });
 
-  function showdropdownList(data){
+function showdropdownList(data) {
     var dropdownList = document.getElementById("dropdown-menu");
-    for(var i=0; i<data.length; i++){
+    for (var i = 0; i < data.length; i++) {
         var liEl = document.createElement('li');
         liEl.innerHTML = data[i].code
         dropdownList.appendChild(liEl);
     }
-}  
+}
 
 var displayTiles = function (data) {
     for (var i = 0; i < 100; i++) {
-  
+
         searchResults.style.cssText = 'display: flex; flex-wrap: wrap; justify-content: center'
 
         var parkCard = document.createElement('card');
         parkCard.style.cssText = 'border: 2px solid #000000; margin: 10px; padding: 10px; width: 45%; background-color: #fcfcf4; border-radius: 10px';
         parkCard.classList.add('park-card')
-        
+
 
         var cardTitle = document.createElement('h3');
         cardTitle.innerHTML = "Park Name: " + data.data[i].name;
@@ -183,15 +183,15 @@ var expandDetails = function (park) {
 //---------> code for 'zoom' function to fallow<----------------------//
 
 var container = document.querySelector("#search-results")
-var container1 = document.querySelector('#saved-serchers')
+var container1 = document.querySelector('.saved-serchers')
 
 function mapZoom(event) {
     var element = event.target;
-    if(element.matches('h3')){
-    var lng = element.getAttribute('data-lon')
-    var lat = element.getAttribute('data-lat')
+    if (element.matches('h3')) {
+        var lng = element.getAttribute('data-lon')
+        var lat = element.getAttribute('data-lat')
 
-    // if (element.matches('.parkcard')) {
+        // if (element.matches('.parkcard')) {
         mapboxgl.accessToken = mapKey;
         const map = new mapboxgl.Map({
             container: 'map', // container ID
@@ -239,7 +239,7 @@ function mapZoom(event) {
                 }
             );
         });
-    // }
+        // }
     }
 
 }
@@ -252,13 +252,13 @@ container1.addEventListener('click', mapZoom)
 //--------->Local Storage to fallow<--------------------//
 container.addEventListener('click', function (event) {
     var element = event.target;
-var currentParks = JSON.parse(localStorage.getItem('parkcard'))
-if(!currentParks){
-    currentParks=[]
-}
+    var currentParks = JSON.parse(localStorage.getItem('parkcard'))
+    if (!currentParks) {
+        currentParks = []
+    }
     if (Element.matches('h3')) {
-        var parkName = element.textContent;
-        var lng = element.getAttribut('data-lng')
+        var parkName = element.getAttribut()
+        var lng = element.getAttribut('data-lon')
         var lat = element.getAttribute('data-lat')
         var parkObj = {
             parkName: parkName,
@@ -266,12 +266,10 @@ if(!currentParks){
             latatude: lat,
         }
         currentParks.push(parkObj)
-        localStorage.setItem('parkcard',JSON.stringify(currentParks))
+        localStorage.setItem('parkcard', JSON.stringify(currentParks))
     }
 
 })
-
-renderLastSlected()
 
 function renderLastSlected() {
     var park = localStorage.getItem('parkcard')
@@ -281,4 +279,7 @@ function renderLastSlected() {
     }
     container1.textContent = park
 }
+renderLastSlected()
+
+
 //--------->Local Storage to above<--------------------//
