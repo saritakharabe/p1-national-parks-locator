@@ -2,6 +2,7 @@ body,
 html {
   height: 100%;
   margin: auto;
+
 }
 
 .section {
@@ -22,6 +23,15 @@ html {
   border: 1px solid black;
 }
 
+
+.bg-img { 
+  background-image: url("../images/luca-calderone-t_E188mzjvU-unsplash.jpg") ;
+  background-repeat:  no-repeat;
+  background-attachment: fixed;
+  background-size:  cover;
+
+}
+
 .divided-section {
   width: 100%;
   display: flex;
@@ -30,6 +40,7 @@ html {
 .dropdown-menu {
   max-height: 200px;
   overflow: scroll;
+  background-color: aquamarine;
 }
 
 .section-1 {
@@ -89,3 +100,4 @@ html {
 .detailed-card p {
   margin-top: 20px;
 }
+

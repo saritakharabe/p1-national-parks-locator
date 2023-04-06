@@ -17,7 +17,6 @@ const map = new mapboxgl.Map({
     zoom: 9, // starting zoom
 });
 
-
 // Code to take results of natl parks API call and append it to the search result tiles
 var searchResults = document.querySelector("#search-results");
 
@@ -138,6 +137,7 @@ function displayParkList(data) {
     var removeDropdownList = document.addEventListener("click", function () {
         dropdown.classList.remove("is-active");
     });
+
 
     fetch("./assets/statecodes.json")
         .then(function (response) {
@@ -305,3 +305,9 @@ container.addEventListener('click', function (event) {
 
 
 // --------->Local Storage to above<--------------------//
+
+    // }
+container.addEventListener("click", mapZoom);
+
+// container1.addEventListener("click", mapZoom);
+
