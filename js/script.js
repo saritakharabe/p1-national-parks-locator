@@ -1,6 +1,7 @@
 
 //variable for map box API
 var mapKey = "pk.eyJ1IjoiYXNiMjAyIiwiYSI6ImNsZzJkcmxudTA0aDkzdHFzMHh1Mzk0a3cifQ.HQAX2YLQBEZjcagat-k8vw"
+var saveParks = []
 
 mapboxgl.accessToken = mapKey;
 const map = new mapboxgl.Map({
@@ -255,9 +256,12 @@ container1.addEventListener('click', mapZoom)
 //--------->Local Storage to fallow<--------------------//
 container.addEventListener('click', function (event) {
     var element = event.target;
-
-    if (Element.matches('parkcard')) {
-        var parkName = event.textContent;
+var currentParks = JSON.parse(localStorage.getItem('parkcard'))
+if(!currentParks){
+    currentParks=[]
+}
+    if (Element.matches('h3')) {
+        var parkName = element.textContent;
         var lng = element.getAttribut('data-lng')
         var lat = element.getAttribute('data-lat')
         var parkObj = {
@@ -265,7 +269,8 @@ container.addEventListener('click', function (event) {
             longatude: lng,
             latatude: lat,
         }
-        localStorage.setItem('parkcard', parkObj)
+        currentParks.push(parkObj)
+        localStorage.setItem('parkcard',JSON.stringify(currentParks))
     }
 
 })
