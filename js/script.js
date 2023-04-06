@@ -190,10 +190,11 @@ var container1 = document.querySelector('#saved-serchers')
 
 function mapZoom(event) {
     var element = event.target;
-    var lng = element.getAttribut('data-lng')
+    if(element.matches('h3')){
+    var lng = element.getAttribute('data-lon')
     var lat = element.getAttribute('data-lat')
 
-    if (element.matches('.parkcard')) {
+    // if (element.matches('.parkcard')) {
         mapboxgl.accessToken = mapKey;
         const map = new mapboxgl.Map({
             container: 'map', // container ID
@@ -241,13 +242,14 @@ function mapZoom(event) {
                 }
             );
         });
+    // }
     }
 
 }
 
-container.addEventListener('click', mapZoom())
+container.addEventListener('click', mapZoom)
 
-container1.addEventListener('click', mapZoom())
+container1.addEventListener('click', mapZoom)
 //---------> code for 'zoom' function above<----------------------//
 
 //--------->Local Storage to fallow<--------------------//
