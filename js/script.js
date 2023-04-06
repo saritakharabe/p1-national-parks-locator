@@ -192,7 +192,7 @@ var clickDropdown = document.addEventListener("DOMContentLoaded", function () {
         dropdown.classList.toggle("is-active");
     });
 });
-//dropdown.classList.remove("is-active");
+// dropdown.classList.remove("is-active");
 document.addEventListener("click", function (event) {
     dropdown.classList.remove("is-active");
 });
