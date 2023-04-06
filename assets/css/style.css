@@ -2,9 +2,7 @@ body,
 html {
   height: 100%;
   margin: auto;
-<<<<<<< HEAD
-}
-=======
+
 }
 
 .section {
@@ -21,12 +19,11 @@ html {
   width: 100%;
 }
 
->>>>>>> 4e8b2601a3339fc432df2a331c95cbc46751b874
 .box-section {
   border: 1px solid black;
 }
 
-<<<<<<< HEAD
+
 .bg-img { 
   background-image: url("../images/luca-calderone-t_E188mzjvU-unsplash.jpg") ;
   background-repeat:  no-repeat;
@@ -34,42 +31,17 @@ html {
   background-size:  cover;
 
 }
-=======
->>>>>>> 4e8b2601a3339fc432df2a331c95cbc46751b874
+
 .divided-section {
   width: 100%;
   display: flex;
 }
-<<<<<<< HEAD
-.dropdown-menu {
-  max-height: 150px;
-=======
 
 .dropdown-menu {
   max-height: 200px;
->>>>>>> 4e8b2601a3339fc432df2a331c95cbc46751b874
   overflow: scroll;
   background-color: aquamarine;
 }
-<<<<<<< HEAD
-.map-section {
-  width: 100%;
-}
-
-.section-1 {
-  width: 50%;
-}
-.section-2 {
-  width: 50%;
-}
-.section {
-  background-color: aquamarine;
-}
-.state-section {
-  width: 100%;
-  margin: 0;
-}
-=======
 
 .section-1 {
   width: 50%;
@@ -128,4 +100,4 @@ html {
 .detailed-card p {
   margin-top: 20px;
 }
->>>>>>> 4e8b2601a3339fc432df2a331c95cbc46751b874
+
