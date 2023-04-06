@@ -17,7 +17,6 @@ const map = new mapboxgl.Map({
   zoom: 9, // starting zoom
 });
 
-
 // Code to take results of natl parks API call and append it to the search result tiles
 var searchResults = document.querySelector("#search-results");
 

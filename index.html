@@ -22,7 +22,6 @@
 </head>
 
 <body>
-
     <!-- scripts for bootstrap, jquery, jquery UI, dayjs, and javascript -->
     <!-- Need to add script for Bulma -->
     <section class="section has-background-info">
@@ -32,7 +31,7 @@
         </div>
     </section>
     <section class="section">
-        <section class="section state-section row is-flex">
+        <section class="section state-section row is-flex bg-image">
             <div class="container column is-size-4">
                 <span class="title is-one-third box-section">Select a state</span>
                 <br>
@@ -51,31 +50,7 @@
                         </div> -->
                     </div>
                 </div>
-            </div>
-            <div class="container column is-size-4">
-                <span class="title is-one-third box-section">Select a Activities</span>
-                <br>
-                <div class="dropdown">
-                    <div class="dropdown-trigger">
-                        <button class="button is-size-4" aria-controls="dropdown-menu" aria-haspopup="true">
-                            <span id="activity-name"></span>
-                            <span class="icon is-medium">
-                                <i class="fa fa-angle-down" aria-hidden="true"></i>
-                            </span>
-                        </button>
-                    </div>   
-                    <div class="dropdown-menu" id="dropdown-menu" role="menu"> 
-                                               
-                    </div> 
-                        <!-- <fieldset>
-                            <input type="checkbox" name="activities" value="hiking">Hiking<br>
-                            <input type="checkbox" name="activities" value="trail">Boating<br>
-                            <input type="checkbox" name="activities" value="fishing">Fishing<br>
-                            <input type="checkbox" name="activities" value="camping">Camping<br>
-                            <input type="checkbox" name="activities" value="camping">Biking<br>
-                            <br>
-                        </fieldset> -->
-                </div>    
+            </div>   
             </div>
         </section>
         <section class="divided-section">
@@ -86,8 +61,6 @@
             </section>
         </section>
     </section>
-
-    <div id='map' style='width: 100%; height: 300px;'></div>
     <section id="search-results">
         <div id='map' style='width: 100%; height: 100%;'></div>
         <!-- scripts for bootstrap, jquery, jquery UI, dayjs, and javascript -->

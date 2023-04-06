@@ -1,39 +1,42 @@
-
-body, html {
-    height: 100%;
-    margin: auto;
-  }
-
-.section{
-  background-color: aquamarine;
+body,
+html {
+  height: 100%;
+  margin: auto;
 }
-.state-section{
-  width: 100%;
-  margin: 0;
-
-}
-
-.map-section{
-  width: 100%;
-}
-
-.box-section{
+.box-section {
   border: 1px solid black;
 }
 
-.divided-section{
+.bg-img { 
+  background-image: url("../images/luca-calderone-t_E188mzjvU-unsplash.jpg") ;
+  background-repeat:  no-repeat;
+  background-attachment: fixed;
+  background-size:  cover;
+
+}
+.divided-section {
   width: 100%;
   display: flex;
 }
-.dropdown-menu{
+.dropdown-menu {
   max-height: 150px;
   overflow: scroll;
   background-color: aquamarine;
 }
-.section-1{
-  width: 50%;
+.map-section {
+  width: 100%;
 }
 
-.section-2{
+.section-1 {
   width: 50%;
+}
+.section-2 {
+  width: 50%;
+}
+.section {
+  background-color: aquamarine;
+}
+.state-section {
+  width: 100%;
+  margin: 0;
 }
