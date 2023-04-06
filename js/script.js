@@ -104,103 +104,6 @@ fetch("./assets/statecodes.json")
     }
 }  
 
-//---------> code for 'zoom' function to fallow<----------------------//
-
-// var container = document.querySelector("#search-results")
-// var container1 = document.querySelector('#saved-serchers')
-
-// function mapZoom(event) {
-//     var element = event.target;
-//     var lng = element.getAttribut('data-lng')
-//     var lat = element.getAttribute('data-lat')
-
-//     if (element.matches('.parkcard')) {
-//         mapboxgl.accessToken = mapKey;
-//         const map = new mapboxgl.Map({
-//             container: 'map', // container ID
-//             style: 'mapbox://styles/mapbox/streets-v12', // style URL
-//             center: [lng, lat], // starting position [lng, lat]
-//             zoom: 4, // starting zoom
-//         });
-//         map.on('load', () => {
-//             // Load an image from an external URL.
-//             map.loadImage(
-//                 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Logo_of_the_United_States_National_Park_Service.svg/1200px-Logo_of_the_United_States_National_Park_Service.svg.png',
-//                 (error, image) => {
-//                     if (error) throw error;
-
-//                     // Add the image to the map style.
-//                     map.addImage('logo', image);
-
-//                     // Add a data source containing one point feature.
-//                     map.addSource('point', {
-//                         'type': 'geojson',
-//                         'data': {
-//                             'type': 'FeatureCollection',
-//                             'features': [
-//                                 {
-//                                     'type': 'Feature',
-//                                     'geometry': {
-//                                         'type': 'Point',
-//                                         'coordinates': [lng, lat]
-//                                     }
-//                                 }
-//                             ]
-//                         }
-//                     });
-
-//                     // Add a layer to use the image to represent the data.
-//                     map.addLayer({
-//                         'id': 'points',
-//                         'type': 'symbol',
-//                         'source': 'point', // reference the data source
-//                         'layout': {
-//                             'icon-image': 'logo', // reference the image
-//                             'icon-size': 0.02
-//                         }
-//                     });
-//                 }
-//             );
-//         });
-//     }
-
-// }
-
-// container.addEventListener('click', mapZoom())
-
-// container1.addEventListener('click', mapZoom())
-// //---------> code for 'zoom' function above<----------------------//
-
-// //--------->Local Storage to fallow<--------------------//
-// container.addEventListener('click', function (event) {
-//     var element = event.target;
-
-//     if (Element.matches('parkcard')) {
-//         var parkName = event.textContent;
-//         var lng = element.getAttribut('data-lng')
-//         var lat = element.getAttribute('data-lat')
-//         var parkObj = {
-//             parkName: parkName,
-//             longatude: lng,
-//             latatude: lat,
-//         }
-//         localStorage.setItem('parkcard', parkObj)
-//     }
-
-// })
-
-// renderLastSlected()
-
-// function renderLastSlected() {
-//     var park = localStorage.getItem('parkcard')
-
-//     if (!park) {
-//         return;
-//     }
-//     container1.textContent = park
-// }
-// //--------->Local Storage to above<--------------------//
-
 var displayTiles = function (data) {
     for (var i = 0; i < 100; i++) {
   
@@ -312,4 +215,99 @@ function showdropdownList(data) {
     }
 }  
 
+//---------> code for 'zoom' function to fallow<----------------------//
 
+var container = document.querySelector("#search-results")
+var container1 = document.querySelector('#saved-serchers')
+
+function mapZoom(event) {
+    var element = event.target;
+    var lng = element.getAttribut('data-lng')
+    var lat = element.getAttribute('data-lat')
+
+    if (element.matches('.parkcard')) {
+        mapboxgl.accessToken = mapKey;
+        const map = new mapboxgl.Map({
+            container: 'map', // container ID
+            style: 'mapbox://styles/mapbox/streets-v12', // style URL
+            center: [lng, lat], // starting position [lng, lat]
+            zoom: 4, // starting zoom
+        });
+        map.on('load', () => {
+            // Load an image from an external URL.
+            map.loadImage(
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Logo_of_the_United_States_National_Park_Service.svg/1200px-Logo_of_the_United_States_National_Park_Service.svg.png',
+                (error, image) => {
+                    if (error) throw error;
+
+                    // Add the image to the map style.
+                    map.addImage('logo', image);
+
+                    // Add a data source containing one point feature.
+                    map.addSource('point', {
+                        'type': 'geojson',
+                        'data': {
+                            'type': 'FeatureCollection',
+                            'features': [
+                                {
+                                    'type': 'Feature',
+                                    'geometry': {
+                                        'type': 'Point',
+                                        'coordinates': [lng, lat]
+                                    }
+                                }
+                            ]
+                        }
+                    });
+
+                    // Add a layer to use the image to represent the data.
+                    map.addLayer({
+                        'id': 'points',
+                        'type': 'symbol',
+                        'source': 'point', // reference the data source
+                        'layout': {
+                            'icon-image': 'logo', // reference the image
+                            'icon-size': 0.02
+                        }
+                    });
+                }
+            );
+        });
+    }
+
+}
+
+container.addEventListener('click', mapZoom())
+
+container1.addEventListener('click', mapZoom())
+//---------> code for 'zoom' function above<----------------------//
+
+//--------->Local Storage to fallow<--------------------//
+container.addEventListener('click', function (event) {
+    var element = event.target;
+
+    if (Element.matches('parkcard')) {
+        var parkName = event.textContent;
+        var lng = element.getAttribut('data-lng')
+        var lat = element.getAttribute('data-lat')
+        var parkObj = {
+            parkName: parkName,
+            longatude: lng,
+            latatude: lat,
+        }
+        localStorage.setItem('parkcard', parkObj)
+    }
+
+})
+
+renderLastSlected()
+
+function renderLastSlected() {
+    var park = localStorage.getItem('parkcard')
+
+    if (!park) {
+        return;
+    }
+    container1.textContent = park
+}
+//--------->Local Storage to above<--------------------//
