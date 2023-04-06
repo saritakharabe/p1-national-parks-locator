@@ -81,7 +81,7 @@ var clickDropdown = document.addEventListener("DOMContentLoaded", function () {
     dropdown.classList.toggle("is-active");
   });
 });
-//dropdown.classList.remove("is-active");
+dropdown.classList.remove("is-active");
 document.addEventListener("click", function (event) {
   dropdown.classList.remove("is-active");
 });
@@ -182,38 +182,6 @@ var expandDetails = function (park) {
     searchResults.appendChild(detailedCard);
 }
 
-
-//variable for map box API
-
-var dropdown = document.querySelector(".dropdown");
-var clickDropdown = document.addEventListener("DOMContentLoaded", function () {
-    dropdown.addEventListener("click", function (event) {
-        event.stopPropagation();
-        dropdown.classList.toggle("is-active");
-    });
-});
-// dropdown.classList.remove("is-active");
-document.addEventListener("click", function (event) {
-    dropdown.classList.remove("is-active");
-});
-
-fetch("./assets/statecodes.json")
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (data) {
-        console.log(data);
-        showdropdownList(data);
-    });
-
-function showdropdownList(data) {
-    var dropdownList = document.getElementById("dropdown-menu");
-    for (var i = 0; i < data.length; i++) {
-        var liEl = document.createElement('li');
-        liEl.innerHTML = data[i].code
-        dropdownList.appendChild(liEl);
-    }
-}  
 
 //---------> code for 'zoom' function to fallow<----------------------//
 
