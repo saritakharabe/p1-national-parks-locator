@@ -41,6 +41,7 @@ function displayParkList(data) {
         cardTitle.dataset.lat = data.data[i].latitude;
         cardTitle.dataset.lon = data.data[i].longitude;
         cardTitle.dataset.code = data.data[i].parkCode;
+        cardTitle.dataset.nameP = data.data[i].name;
         cardTitle.style.cssText =
             "font-weight: bold; cursor: grab; text-decoration: underline; color: #00308F";
 
@@ -164,7 +165,7 @@ function onStateSelect(event) {
 //after filtering activity showing park list
 
 var container = document.querySelector("#search-results");
-var container1 = document.querySelector(".saved-serchers");
+var container1 = document.querySelector(".saved-parks");
 
 function mapZoom(event) {
     var element = event.target;
@@ -178,7 +179,7 @@ function mapZoom(event) {
             container: "map", // container ID
             style: "mapbox://styles/mapbox/streets-v12", // style URL
             center: [lng, lat], // starting position [lng, lat]
-            zoom: 7, // starting zoom
+            zoom: 6, // starting zoom
         });
         map.on("load", () => {
             // Load an image from an external URL.
@@ -229,15 +230,16 @@ container.addEventListener("click", mapZoom);
 container1.addEventListener("click", mapZoom);
 
 // --------->Local Storage to fallow<--------------------//
+
 container.addEventListener('click', function (event) {
     var element = event.target;
     var currentParks = JSON.parse(localStorage.getItem('parkcard'))
     if (!currentParks) {
         currentParks = []
     }
-    if (Element.matches('h3')) {
-        var parkName = element.getAttribut()
-        var lng = element.getAttribut('data-lon')
+    if (element.matches('h3')) {
+        var parkName = element.getAttribute('data-name-p')
+        var lng = element.getAttribute('data-lon')
         var lat = element.getAttribute('data-lat')
         var parkObj = {
             parkName: parkName,
@@ -246,19 +248,46 @@ container.addEventListener('click', function (event) {
         }
         currentParks.push(parkObj)
         localStorage.setItem('parkcard', JSON.stringify(currentParks))
+
+        function renderLastSlected() {
+            var parks = JSON.parse(localStorage.getItem('parkcard'))
+            document.querySelector('.saved-parks').innerHTML=''
+
+            if (!parks) {
+                return;
+            }
+            // container1.textContent = parks.parkName
+            // searchResults.style.cssText =
+            //     "display: flex; flex-wrap: wrap; justify-content: center";
+            for (let i = 0; i < parks.length; i++) {
+                var parkCard = document.createElement("div");
+                parkCard.textContent = parks[i].parkName
+                parkCard.setAttribute('data-lng', lng)
+                parkCard.setAttribute('data-lat', lat)
+                parkCard.style.cssText =
+                    "border: 2px solid #000000; margin: 10px; padding: 10px; width: 45%; background-color: #fcfcf4; border-radius: 10px";
+                parkCard.classList.add("park-card");
+                document.querySelector(".saved-parks").append(parkCard)
+
+
+            }
+
+
+
+            // var cardTitle = document.createElement("h3");
+            // cardTitle.innerHTML = data.data[i].name;
+            // cardTitle.dataset.lat = data.data[i].latitude;
+            // cardTitle.dataset.lon = data.data[i].longitude;
+            // cardTitle.dataset.code = data.data[i].parkCode;
+            // cardTitle.dataset.nameP = data.data[i].name;
+            // cardTitle.style.cssText = "font-weight: bold; cursor: grab; text-decoration: underline; color: #00308F";
+        }
+        renderLastSlected()
     }
 
 })
 
-function renderLastSlected() {
-    var park = localStorage.getItem('parkcard')
 
-    if (!park) {
-        return;
-    }
-    container1.textContent = park
-}
-renderLastSlected()
 
 
 // --------->Local Storage to above<--------------------//
