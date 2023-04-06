@@ -1,38 +1,91 @@
+body,
+html {
+  height: 100%;
+  margin: auto;
+}
 
-body, html {
-    height: 100%;
-    margin: auto;
-  }
-
-.section{
+.section {
   background-color: aquamarine;
 }
-.state-section{
+
+.state-section {
   width: 100%;
   margin: 0;
 
 }
 
-.map-section{
+.map-section {
   width: 100%;
 }
 
-.box-section{
+.box-section {
   border: 1px solid black;
 }
 
-.divided-section{
+.divided-section {
   width: 100%;
   display: flex;
 }
-.dropdown-menu{
+
+.dropdown-menu {
   max-height: 200px;
   overflow: scroll;
 }
-.section-1{
+
+.section-1 {
   width: 50%;
 }
 
-.section-2{
+.section-2 {
   width: 50%;
+}
+
+.park-card {
+  border: 2px solid #000000;
+  margin: 10px;
+  padding: 10px;
+  width: 45%;
+  background-color: #fcfcf4;
+  border-radius: 10px
+}
+
+.detailed-card h1 {
+  font-size: 300%;
+  font-weight: bold;
+  margin: 10px;
+}
+
+.detailed-card {
+  border: 2px solid #000000;
+  margin: 10px;
+  padding: 10px;
+  width: 95%;
+  background-color: #fcfcf4;
+  border-radius: 10px
+}
+
+.detailed-card h3 {
+  font-size: 125%;
+  font-weight: bold;
+  margin: 10px;
+}
+
+.detailed-card p {
+  margin: 10px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.detailed-card ul {
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.detailed-card li {
+  list-style-type: circle;
+  margin-left: 50px;
+}
+
+.detailed-card p {
+  margin-top: 20px;
 }
