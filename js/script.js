@@ -70,10 +70,6 @@ fetch(apiCall)
         displayTiles(data);
     })
 
-//--------->for loop for multiple parks to fallow<--------------------//
-
-
-//variable for map box API
 
 var dropdown = document.querySelector(".dropdown");
 var clickDropdown = document.addEventListener("DOMContentLoaded", function () {
@@ -201,7 +197,7 @@ function mapZoom(event) {
             container: 'map', // container ID
             style: 'mapbox://styles/mapbox/streets-v12', // style URL
             center: [lng, lat], // starting position [lng, lat]
-            zoom: 4, // starting zoom
+            zoom: 7, // starting zoom
         });
         map.on('load', () => {
             // Load an image from an external URL.
